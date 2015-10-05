@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Newsfeeds</h1>
+
+
+
+  <%@combined.each do |combined|%>
+  <tbody>
+  <%if combined.try(:date) %>
+        <br/>
+        <h3>Bible Study</h3>
+        <%= combined.date%>
+        <%= combined.lesson%>
+        <%= combined.takeaways%>
+        <tr>
+          <td><%= link_to 'Show', combined %></td>
+          <td><%= link_to 'Edit', edit_bible_study_path(combined) %></td>
+          <td><%= link_to 'Destroy', combined, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+ 
+  <%elsif combined.try(:prayer_request)%>
+    <br/>
+    <h3>Prayer Request</h3>
+      <tr>
+        <td><%= combined.prayer_request %></td>
+        <td><%= link_to 'Show', combined %></td>
+        <td><%= link_to 'Edit', edit_prayer_request_path(combined) %></td>
+        <td><%= link_to 'Destroy', combined, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  
+  <%else combined.try(:title)%>
+  <tr>
+        <br/>
+        <h3>Announcment</h3>
+        <td><%= combined.title %></td>
+        <td><%= combined.description %></td>
+        <td><%= combined.time %></td>
+        <td><%= combined.location %></td>
+        <td><%= link_to 'Show', combined %></td>
+        <td><%= link_to 'Edit', edit_announcement_path(combined) %></td>
+        <td><%= link_to 'Destroy', combined, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  
+  <%end%>
+  
+  
+  </tbody>
+  <%end%>
+
+
+
+
+  
+   
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Newsfeed', new_newsfeed_path %>

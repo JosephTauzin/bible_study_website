@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @bible_study.date %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @bible_study.lesson %>
+</p>
+
+<p>
+  <strong>Takeaways:</strong>
+  <%= @bible_study.takeaways %>
+</p>
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+  <div>
+    <strong><%= comment.name %></strong>
+    <br />
+    <p><%= comment.comment %></p>
+    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+<% end %>
+<%= render 'comments/form' %>
+<%= link_to 'Edit', edit_bible_study_path(@bible_study) %> |
+<%= link_to 'Back', newsfeeds_path %>

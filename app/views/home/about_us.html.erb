@@ -1,0 +1,9 @@
+<h3>Hi</h3>
+<% time=Time.new%>
+<% if time.hour >12 %>
+<%= "#{time.hour - 12} pm" %>
+<%else%>
+<%= "#{time.hour} am"%>
+<%end%>
+<%= time.min %>
+<%= "3:54 pm".to_time.hour%>

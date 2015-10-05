@@ -1,0 +1,29 @@
+<%= form_for(@bible_study) do |f| %>
+  <% if @bible_study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bible_study.errors.count, "error") %> prohibited this bible_study from being saved:</h2>
+
+      <ul>
+      <% @bible_study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :lesson %><br>
+    <%= f.text_area :lesson %>
+  </div>
+  <div class="field">
+    <%= f.label :takeaways %><br>
+    <%= f.text_field :takeaways %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

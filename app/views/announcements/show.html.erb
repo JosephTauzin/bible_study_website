@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @announcement.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @announcement.description %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @announcement.time %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @announcement.location %>
+</p>
+
+<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%= link_to 'Back', newsfeeds_path %>
